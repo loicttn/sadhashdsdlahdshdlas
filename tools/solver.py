@@ -23,7 +23,7 @@ class Solver:
             m = sum(map(lambda x: x.trafic, streets))
             m = 1 if m == 0 else m
             for street in streets:
-                q = 15 if self.s.duration > 15 else self.s.duration
+                q = 200 if self.s.duration > 200 else self.s.duration
                 time = (street.trafic * q / m )
                 if int(time) == 0:
                     time += 1
