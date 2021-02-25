@@ -25,7 +25,7 @@ class Solver:
                 q = 30 if self.s.duration > 30 else self.s.duration
                 time = (street.trafic * q / m )
                 if int(time) == 0:
-                    continue
+                    time += 1
                 schedule.append(f'{street.name} {int(time)}')
             if len(schedule) != 0:
                 self.push(inter)
