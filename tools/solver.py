@@ -23,7 +23,7 @@ class Solver:
             self.push(len(streets))
             m = sum(map(lambda x: x.trafic, streets))
             for street in streets:
-                time = street.trafic * 6 / m
+                time = (street.trafic * 30 / m) % self.s.duration
                 self.push(f'{street.name} {int(time)}')
             #     print(street.name)
             # print(self.s.map[inter])
