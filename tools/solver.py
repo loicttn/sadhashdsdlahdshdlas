@@ -5,19 +5,26 @@ from typing import List
 class Solver:
     def __init__(self, s: Simulation):
         self.s = s
+        self.output = ""
+
+    def push(self, data):
+        self.output += str(data) + '\n'
 
     def run(self):
-        print(self.s.inters_nb)
+        self.push(self.s.inters_nb)
         for inter, streets_indexes in self.s.map.items():
-            print(inter)
+            self.push(inter)
             streets: List[Street] = []
             for street_index in streets_indexes:
                 street: Street = self.s.streets[street_index]
                 if street.end == inter:
                     streets.append(street)
 
-            print(len(streets))
+            self.push(len(streets))
+            m = sum(map(lambda x: x.trafic, streets))
             for street in streets:
-                print(street.name, 1)
+                time = street.trafic * 30 / m
+                self.push(f'{street.name} {int(time)}')
             #     print(street.name)
             # print(self.s.map[inter])
+        print(self.output)
