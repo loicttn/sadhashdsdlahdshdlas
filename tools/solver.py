@@ -33,4 +33,4 @@ class Solver:
                 self.push('\n'.join(schedule))
             #     print(street.name)
             # print(self.s.map[inter])
-        print(self.output)
+        print(self.output[:-1])
