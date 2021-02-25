@@ -46,12 +46,13 @@ class Parser:
                 s.map[int(street[1])] = []
             s.map[int(street[0])].append(i)
             s.map[int(street[1])].append(i)
+        # ttl = 0
+        print("HERE")
+        car = []
         for i in range(s.cars_nb):
-            car = c[i+1+s.street_nb].split()
-            s.cars.append(Car(int(car[0])))
-            for j in range(1, s.cars[-1].l + 1):
-                for k in s.streets:
-                    if k.name == car[j]:
-                        s.cars[-1].streets.append(s.streets.index(k))
-                        s.streets[s.streets.index(k)].trafic += 1
+            car += c[i+1+s.street_nb].split()
+        for s in s.streets:
+            s.trafic = car.count(s.name)
+        print("THERE")
+        # print(ttl / s.cars_nb)
         return s
