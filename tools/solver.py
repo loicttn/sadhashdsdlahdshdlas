@@ -20,11 +20,15 @@ class Solver:
                 if street.end == inter:
                     streets.append(street)
 
-            self.push(len(streets))
+            schedule = []
             m = sum(map(lambda x: x.trafic, streets))
             for street in streets:
-                time = (street.trafic * 30 / m) % self.s.duration
-                self.push(f'{street.name} {int(time)}')
+                time = (street.trafic * 30 / m )
+                if int(time) == 0:
+                    continue
+                schedule.append(f'{street.name} {int(time)}')
+            self.push(len(schedule))
+            self.push('\n'.join(schedule))
             #     print(street.name)
             # print(self.s.map[inter])
         print(self.output)
