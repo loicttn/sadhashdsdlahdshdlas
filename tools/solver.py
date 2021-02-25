@@ -13,7 +13,6 @@ class Solver:
     def run(self):
         self.push(self.s.inters_nb)
         for inter, streets_indexes in self.s.map.items():
-            self.push(inter)
             streets: List[Street] = []
             for street_index in streets_indexes:
                 street: Street = self.s.streets[street_index]
@@ -28,8 +27,10 @@ class Solver:
                 if int(time) == 0:
                     continue
                 schedule.append(f'{street.name} {int(time)}')
-            self.push(len(schedule))
-            self.push('\n'.join(schedule))
+            if len(schedule) != 0:
+                self.push(inter)
+                self.push(len(schedule))
+                self.push('\n'.join(schedule))
             #     print(street.name)
             # print(self.s.map[inter])
         print(self.output)
