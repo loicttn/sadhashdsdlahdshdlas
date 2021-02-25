@@ -51,8 +51,8 @@ class Parser:
         car = []
         for i in range(s.cars_nb):
             car += c[i+1+s.street_nb].split()
-        for s in s.streets:
-            s.trafic = car.count(s.name)
+        for ss in s.streets:
+            ss.trafic = car.count(ss.name)
         print("THERE")
         # print(ttl / s.cars_nb)
         return s
