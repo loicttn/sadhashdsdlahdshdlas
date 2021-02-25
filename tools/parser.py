@@ -6,6 +6,7 @@ class Street:
         self.start = start
         self.end = end
         self.l = l
+        self.trafic = 0
 
     def __str__(self):
         return f"name:{self.name}\tstarts:{str(self.start)}\tends:{self.end}\tlength:{self.l}"
@@ -52,4 +53,5 @@ class Parser:
                 for k in s.streets:
                     if k.name == car[j]:
                         s.cars[-1].streets.append(s.streets.index(k))
+                        s.streets[s.streets.index(k)].trafic += 1
         return s

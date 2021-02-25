@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 rm -rf results/*
-zip -r out.zip .
+zip out.zip -@ < zip.lst
 
 (./main.py ./data/A.txt > ./results/A.txt) &
 (./main.py ./data/B.txt > ./results/B.txt) &
