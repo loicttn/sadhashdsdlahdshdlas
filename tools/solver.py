@@ -21,6 +21,7 @@ class Solver:
 
             schedule = []
             m = sum(map(lambda x: x.trafic, streets))
+            m = 1 if m == 0 else m
             for street in streets:
                 q = 30 if self.s.duration > 30 else self.s.duration
                 time = (street.trafic * q / m )
