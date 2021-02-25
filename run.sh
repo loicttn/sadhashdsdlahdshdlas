@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 ./main.py ./data/A.txt > ./results/A.txt
 ./main.py ./data/B.txt > ./results/B.txt
 ./main.py ./data/C.txt > ./results/C.txt
